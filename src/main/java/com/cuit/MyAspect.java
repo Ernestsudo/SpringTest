@@ -3,10 +3,12 @@ package com.cuit;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
+//@Autowired Bytype类型注入 应用类型注入方式时使用该方法
 public class MyAspect {
     @Pointcut("execution(* com.cuit.UserService.*(..))")
     public void pointCut() {

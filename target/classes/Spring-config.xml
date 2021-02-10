@@ -5,13 +5,30 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
     <bean id="User" class ="com.cuit.User">
 
-
+        <!--  构造方法注入 有参构造方法注入-->
         <constructor-arg name="id" index="0" value="1 "/>
-        <constructor-arg name="username" index="1" value="蒲朝禹"/>
+        <constructor-arg name="username" index="1" value="杜宏波"/>
         <constructor-arg name="password" index="2" value="123456"/>
 
     </bean>
     <bean id="mydate" class="java.util.Date"/>
+<!--<&ndash;&gt;-->
+    <!--  构造方法注入 无参构造方法注入-->
+    <bean id="user1" class="com.cuit.User">
+        <property name="id" value="5"/>
+        <property name="password" value="123456"></property>
+        <property name="username" value="adu"></property>
+     </bean>
+
+<!--     <bean id="user1" class="com.cuit.User">
+        <property name="id" value="5"/>
+        <property name="password" value="123456"></property>
+        <property name="username" value="adu"></property>
+     </bean>-->
+<!--   声明组件扫描器 组件就是JAVA对象  扫描包，使用注解的时候用的
+        base-package 指定该项目的包名字
+-->
+    <context:property-placeholder location="classpath:test.properties"></context:property-placeholder>
     <context:component-scan base-package="com.cuit" />
     <aop:aspectj-autoproxy />
 </beans>

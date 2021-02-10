@@ -1,9 +1,20 @@
 package com.cuit;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+//使用Conmponent注解
+//这里还处理了test.properties 传值的方式
+@Component("User")
 public class User {
+    @Value("${id}")
     private int id;
+    @Value("${username}")
     private String username;
+    @Value("${password}")
     private String password;
+
+    public User() {
+    }
 
     public User(int id, String username, String password) {
         this.id = id;
